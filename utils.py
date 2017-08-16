@@ -70,7 +70,8 @@ def progress_bar(current, total, msg=None):
     tot_time = cur_time - begin_time
 
     L = []
-    L.append('  Step: %s' % format_time(step_time))
+    # L.append('  Step: %s' % format_time(step_time))
+    L.append('  Step: %s' % format_time(tot_time/(current+1.)))
     L.append(' | Tot: %s' % format_time(tot_time))
     if msg:
         L.append(' | ' + msg)
@@ -105,20 +106,20 @@ def format_time(seconds):
     f = ''
     i = 1
     if days > 0:
-        f += str(days) + 'D'
+        f += '%2dD' % (days)
         i += 1
     if hours > 0 and i <= 2:
-        f += str(hours) + 'h'
+        f += '%2dh' % (hours)
         i += 1
     if minutes > 0 and i <= 2:
-        f += str(minutes) + 'm'
+        f += '%2dm' % (minutes)
         i += 1
     if secondsf > 0 and i <= 2:
-        f += str(secondsf) + 's'
+        f += '%2ds' % (secondsf)
         i += 1
     if millis > 0 and i <= 2:
-        f += str(millis) + 'ms'
+        f += '%3dms' % (millis)
         i += 1
     if f == '':
-        f = '0ms'
+        f = '  0ms'
     return f

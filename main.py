@@ -60,7 +60,7 @@ if args.resume:
     start_epoch = checkpoint['epoch']
 else:
     print('==> Building model..')
-    # net = VGG('VGG19')
+    net = VGG('VGG19')
     # net = ResNet18()
     # net = GoogLeNet()
     # net = DenseNet121()
@@ -68,7 +68,6 @@ else:
     # net = MobileNet()
     # net = DPN92()
     # net = ShuffleNetG2()
-    net = SENet18()
 
 if use_cuda:
     net.cuda()
